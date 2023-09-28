@@ -36,7 +36,6 @@ class TestYourWebserver(unittest.TestCase):
         req = request.urlopen(url, None, 3)
         self.assertTrue( req.getcode()  == 200 , "200 OK Not FOUND!")
 
-
     def test_get_index(self):
         url = self.baseurl + "/index.html"
         req = request.urlopen(url, None, 3)
@@ -109,7 +108,7 @@ class TestYourWebserver(unittest.TestCase):
         url = self.baseurl + "/hardcode/"
         req = request.urlopen(url, None, 3)
         self.assertTrue( req.getcode()  == 200 , "200 OK Not FOUND! Hardcoding? /hardcode/")
-        self.assertTrue( req.info().get_content_type() == "text/html", ("Bad mimetype for html! %s" % req.info().get_content_type()))
+        self.assertTrue( req.info().get_content_type() == "text/html", ("Bad mimetype for html! %s" % req.info().get_content_type()))  #error here
 
     def test_hardcode2(self):
         url = self.baseurl + "/deep.css"
