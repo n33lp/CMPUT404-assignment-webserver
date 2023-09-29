@@ -58,7 +58,8 @@ class MyWebServer(socketserver.BaseRequestHandler):
                 request_more = re.split(r'(/)', request_path)
 
             deeper = 1
-        current_directory = os.path.dirname(__file__)
+        script_path = os.path.abspath(__file__)
+        current_directory = os.path.dirname(script_path)
         directory_contents = os.listdir(current_directory)
         directories = [item for item in directory_contents if os.path.isdir(os.path.join(current_directory, item))]
 
